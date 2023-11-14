@@ -2,8 +2,7 @@
 
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import "forge-std/interfaces/IERC165.sol";
 import "erc721a/contracts/ERC721A.sol";
 import "erc721a/contracts/IERC721A.sol";
 import "./interfaces/IONFT721.sol";

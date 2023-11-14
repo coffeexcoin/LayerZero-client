@@ -2,13 +2,10 @@
 
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
+import {IERC721, IERC721TokenReceiver} from "forge-std/interfaces/IERC721.sol";
 import "./ONFT721Core.sol";
 
-contract ProxyONFT721 is ONFT721Core, IERC721Receiver {
-    using ERC165Checker for address;
+contract ProxyONFT721 is ONFT721Core, IERC721TokenReceiver {
 
     IERC721 public immutable token;
 
@@ -52,6 +49,6 @@ contract ProxyONFT721 is ONFT721Core, IERC721Receiver {
     ) public virtual override returns (bytes4) {
         // only allow `this` to transfer token from others
         if (_operator != address(this)) return bytes4(0);
-        return IERC721Receiver.onERC721Received.selector;
+        return IERC721TokenReceiver.onERC721Received.selector;
     }
 }

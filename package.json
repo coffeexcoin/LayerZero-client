@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "erc721a": "github:chiru-labs/erc721a"
+  }
+}

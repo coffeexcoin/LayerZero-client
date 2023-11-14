@@ -4,10 +4,10 @@ pragma solidity ^0.8.0;
 
 import "./interfaces/IONFT721Core.sol";
 import "../../lzApp/NonblockingLzApp.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "forge-std/interfaces/IERC165.sol";
+import "../../ReentrancyGuard.sol";
 
-abstract contract ONFT721Core is NonblockingLzApp, ERC165, ReentrancyGuard, IONFT721Core {
+abstract contract ONFT721Core is NonblockingLzApp, IERC165, ReentrancyGuard, IONFT721Core {
     uint16 public constant FUNCTION_TYPE_SEND = 1;
 
     struct StoredCredit {
