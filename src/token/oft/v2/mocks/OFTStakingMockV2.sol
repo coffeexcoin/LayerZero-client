@@ -2,8 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "forge-std/interfaces/IERC20.sol";
 import "../interfaces/IOFTV2.sol";
 import "../interfaces/IOFTReceiverV2.sol";
 import "../../../../libraries/BytesLib.sol";
@@ -11,7 +10,6 @@ import "../../../../libraries/BytesLib.sol";
 // OFTStakingMock is an example to integrate with OFT. It shows how to send OFT cross chain with a custom payload and
 // call a receiver contract on the destination chain when oft is received.
 contract OFTStakingMockV2 is IOFTReceiverV2 {
-    using SafeERC20 for IERC20;
     using BytesLib for bytes;
 
     uint64 public constant DST_GAS_FOR_CALL = 300000; // estimate gas usage of onOFTReceived()

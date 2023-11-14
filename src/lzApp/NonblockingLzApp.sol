@@ -55,7 +55,7 @@ abstract contract NonblockingLzApp is LzApp {
         bytes calldata _payload
     ) public virtual {
         // only internal transaction
-        require(_msgSender() == address(this), "NonblockingLzApp: caller must be LzApp");
+        require(msg.sender == address(this), "NonblockingLzApp: caller must be LzApp");
         _nonblockingLzReceive(_srcChainId, _srcAddress, _nonce, _payload);
     }
 

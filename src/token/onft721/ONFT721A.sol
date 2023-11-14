@@ -3,8 +3,8 @@
 pragma solidity ^0.8.4;
 
 import "forge-std/interfaces/IERC165.sol";
-import "erc721a/contracts/ERC721A.sol";
-import "erc721a/contracts/IERC721A.sol";
+import "erc721a/ERC721A.sol";
+import "erc721a/IERC721A.sol";
 import "./interfaces/IONFT721.sol";
 import "./ONFT721Core.sol";
 

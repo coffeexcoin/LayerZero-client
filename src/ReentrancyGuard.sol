@@ -53,7 +53,7 @@ abstract contract ReentrancyGuard{
      */
     error ReentrancyGuardReentrantCall();
 
-    function __ReentrancyGuard_init() {
+    function __ReentrancyGuard_init() internal {
         ReentrancyGuardStorage storage $ = _getReentrancyGuardStorage();
         $._status = NOT_ENTERED;
     }

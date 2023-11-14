@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 
 import "../../../lzApp/NonblockingLzApp.sol";
 import "./interfaces/IOFTCore.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import "forge-std/interfaces/IERC165.sol";
 
-abstract contract OFTCore is NonblockingLzApp, ERC165, IOFTCore {
+abstract contract OFTCore is NonblockingLzApp, IERC165, IOFTCore {
     using BytesLib for bytes;
 
     uint public constant NO_EXTRA_GAS = 0;
@@ -18,8 +18,8 @@ abstract contract OFTCore is NonblockingLzApp, ERC165, IOFTCore {
 
     constructor(address _lzEndpoint) NonblockingLzApp(_lzEndpoint) {}
 
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
-        return interfaceId == type(IOFTCore).interfaceId || super.supportsInterface(interfaceId);
+    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
+        return interfaceId == type(IOFTCore).interfaceId || interfaceId == type(IERC165).interfaceId;
     }
 
     function estimateSendFee(

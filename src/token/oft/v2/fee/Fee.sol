@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "solady/src/auth/Ownable.sol";
 
 abstract contract Fee is Ownable {
     uint public constant BP_DENOMINATOR = 10000;

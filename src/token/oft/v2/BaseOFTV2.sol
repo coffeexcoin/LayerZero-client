@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 
 import "./OFTCoreV2.sol";
 import "./interfaces/IOFTV2.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import "forge-std/interfaces/IERC165.sol";
 
-abstract contract BaseOFTV2 is OFTCoreV2, ERC165, IOFTV2 {
+abstract contract BaseOFTV2 is OFTCoreV2, IERC165, IOFTV2 {
     constructor(uint8 _sharedDecimals, address _lzEndpoint) OFTCoreV2(_sharedDecimals, _lzEndpoint) {}
 
     /************************************************************************

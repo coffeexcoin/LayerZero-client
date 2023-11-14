@@ -3,12 +3,9 @@
 pragma solidity ^0.8.0;
 
 import "./ONFT1155Core.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
+import "./interfaces/IERC1155Receiver.sol";
 
 contract ProxyONFT1155 is ONFT1155Core, IERC1155Receiver {
-    using ERC165Checker for address;
 
     IERC1155 public immutable token;
 
